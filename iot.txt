@@ -1,0 +1,28 @@
+UDP Client Server Communication :-
+1 Server and many clients
+1. Add motes : Motes->Create new Mote type->Sky Mote
+For Server: Description == UDPSERVER -> Process == look in examples select ipv6 then select rpl-udp then select udp-server.c then clean once and then compile then create and select no.of server needed and then add mote
+For Clients: Description == UDPCLIENT -> Process == look in examples select ipv6 then select rpl-udp then select udp-client.c then clean once and then compile then create and select no.of clients needed and then add mote
+
+CoAP : -
+3 components needed: = 1. Server ; 2. Client and 3. Router Border
+Border router is used to connect with internet(external world)
+REST protocol is used 
+1. Select sky mote and description == RPL BORDER ROUTER
+then select examples folder and select ipv6 and select rpl border router and then select border_router.c  file
+2. Then clean-> compile-> create(select no. of BR =1 here)
+3. Now create server and connect to border router
+Similarly select sky mote and description==REST_Server
+4.Now go to examples -> er_rest_example -> er_example_server.c
+then clean ; compile and create (no.of servers == 1)
+5. Now add clients (similar to server but select er_example_client.c)
+6. Rearrange the motes such tht server is in range of border router and clients are in range of server only
+START NOW SIMULATION 
+7. Now we need to enable the Border (configure it as public)
+1st right click border then select mote tools  and then serial socket server then see port no. written there and start it THEN do following 
+In terminal write
+cd contiki-3.0 -> cd examples -> cd ipv6 -> cd rpl-border-router 
+-> make connect-router-cooja
+
+After this SErver IPv6 address will be printed copy that which is your public ip address and used for commn with world
+Go to browser write [ip address copied]
